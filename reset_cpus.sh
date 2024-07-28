@@ -7,8 +7,8 @@ i=0
 if1_name=ens1f1np1
 if2_name=ens1f0np0
 
-echo "Enabling HT"
-./enable_ht
+# echo "Enabling HT"
+# ./enable_ht
 
 echo "Enable CPUs"
 ./enable_cpus
@@ -34,5 +34,5 @@ do
 	((i = i + 1)) 
 done
 
-./set_irq_affinity_cpulist.sh $cpu_list ens1f0np0
-./set_irq_affinity_cpulist.sh $cpu_list ens1f1np1
+./set_irq_affinity_cpulist.sh $cpu_list enp1s0f0
+./set_irq_affinity_cpulist.sh $cpu_list enp6s0f0
