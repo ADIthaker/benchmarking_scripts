@@ -2,7 +2,7 @@
 
 count=16 #number of cpus
 
-node=$1
+node=$1-
 first=$(( node * 8)) #all these calculations are for the cloudlab hardware type : c220g1
 last=$(( first + 7))
 next_first=$(( first + 16))

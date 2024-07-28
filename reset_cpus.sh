@@ -22,8 +22,8 @@ echo "Enable CPUs"
 # done
 
 echo "Configuring HW queues"
-ethtool -L ens1f1np1 combined 32
-ethtool -L ens1f0np0 combined 32
+ethtool -L enp1s0f0 combined 32
+ethtool -L enp6s0f0 combined 32
 
 echo "Setting IRQ affinity"
 i=1
