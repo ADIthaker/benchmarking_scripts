@@ -4,8 +4,8 @@ count=$1 #number of cpus
 begin=0
 i=0
 
-if1_name=ens1f1np1
-if2_name=ens1f0np0
+if1_name=enp1s0f0
+if2_name=enp6s0f0
 
 # echo "Enabling HT"
 # ./enable_ht
@@ -22,8 +22,8 @@ echo "Enable CPUs"
 # done
 
 echo "Configuring HW queues"
-ethtool -L enp1s0f0 combined 32
-ethtool -L enp6s0f0 combined 32
+ethtool -L $if1_name combined 32
+ethtool -L $if2_name combined 32
 
 echo "Setting IRQ affinity"
 i=1
@@ -34,5 +34,5 @@ do
 	((i = i + 1)) 
 done
 
-./set_irq_affinity_cpulist.sh $cpu_list enp1s0f0
-./set_irq_affinity_cpulist.sh $cpu_list enp6s0f0
+./set_irq_affinity_cpulist.sh $cpu_list $if1_name
+./set_irq_affinity_cpulist.sh $cpu_list $if2_name
