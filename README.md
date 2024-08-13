@@ -1,11 +1,17 @@
-#### Commands to start the experiment on server:
+#### Tweaking NUMA Node IRQ on client:
 ```
-sudo -s
-./reset_cpus.sh # starts all cpus again
-./set_cpus.sh 0 1 #First arg is node no {0, 1}, second arg is interface number {1, 2}.
-numactl --cpunodebind=0 --membind=0 iperf3 -s
+*start_exp.sh*
+
+#!/bin/bash
+
+echo "Running Reset CPUS"
+./reset_cpus.sh
+
+echo "Running Set CPUS"
+./set_cpus.sh $1 2
+
+numactl --cpunodebind=$1 --membind=$1 iperf3 -c 10.10.1.1 -B 10.10.1.2 > ./logs/exp$1.log
 ```
-#### Commands to start the experiment on client:
-```
-iperf3 -c IP_ADDR
-```
+
+#### Server:
+`iperf3 -s -B 10.10.1.1`
