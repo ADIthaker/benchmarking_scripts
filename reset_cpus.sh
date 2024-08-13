@@ -16,8 +16,8 @@ echo "Enabling CPUs"
 while [[ $i -lt $count ]]
 do
     #sudo ip route del 10.10.$((i + begin)).0/24 via 10.10.2.1
-    echo $i
-    echo "sudo echo 1 > /sys/devices/system/cpu/cpu$i/online"
+    #echo $i
+    echo 1 > /sys/devices/system/cpu/cpu$i/online
 	((i = i + 1)) 
 done
 
