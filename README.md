@@ -1,6 +1,6 @@
 #### Tweaking NUMA Node IRQ on client:
+*start_exp.sh*
 ```
-`**`start_exp.sh`**`
 
 #!/bin/bash
 
