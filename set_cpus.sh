@@ -51,12 +51,7 @@ done
 # done
 
 echo "Configuring HW queues"
-if [[ $interface -eq 1 ]]; then
- ethtool -L $IFNAME combined 8
-
-elif [[ $interface -eq 2 ]]; then 
- ethtool -L $IFNAME combined 32
-fi
+ethtool -L $IFNAME combined 8
 
 echo "Setting IRQ affinity"
 cpu_list=$first
